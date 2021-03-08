@@ -60,4 +60,14 @@ public class Conta {
         }
         return false;
     }
+
+    public boolean transferencia(Conta outra, double valor) {
+        if (valor <= saldo) {
+            this.sacar(valor);
+            outra.depositar(valor);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
