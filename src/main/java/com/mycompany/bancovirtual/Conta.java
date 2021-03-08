@@ -37,8 +37,8 @@ public class Conta {
     @Override
     public String toString() {
         String s = " ContaBancaria [ ";
-        s += " nomeCliente: " + this.cliente.getNomeCompleto();
         s += " ; ID: " + this.ID;
+        s += " nomeCliente: " + this.cliente.getNomeCompleto();
         s += " ; saldo: " + this.saldo;
         s += " ] ";
         return s;
