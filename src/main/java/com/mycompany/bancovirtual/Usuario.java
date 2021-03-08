@@ -9,10 +9,6 @@ package com.mycompany.bancovirtual;
  *
  * @author Pichau
  */
-public class Cliente {
+public class Usuario {
     
-    
-    public static void main(String[] args) {
-        
-    }
 }
