@@ -19,7 +19,7 @@ public class Conta {
     private static int quantidadeContas;
 
     public Conta(){
-        this.ID = ++quantidadeContas;
+        this.ID = quantidadeContas++;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
     }

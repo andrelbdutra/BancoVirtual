@@ -46,9 +46,6 @@ public class Main {
                             if(loop2 == 2){ // Depositar dinheiro.
                                 contas.get(i).depositar();
                             }
-                            else{
-                                System.out.println("Valor invalido.");
-                            }  
                         }
                         i = Conta.getQuantidadeContas();
                     }  
