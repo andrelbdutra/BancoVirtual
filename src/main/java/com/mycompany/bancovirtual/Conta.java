@@ -66,8 +66,8 @@ public class Conta {
 
     public boolean transferencia(Conta outra, double valor) {
         if (valor <= getSaldo()) {
-            //this.sacar(valor);
-            //outra.depositar(valor);
+            this.sacar();
+            outra.depositar();
             return true;
         } else {
             return false;
