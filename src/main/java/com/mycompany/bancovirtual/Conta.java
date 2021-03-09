@@ -5,8 +5,8 @@
  */
 package com.mycompany.bancovirtual;
 
+import java.util.List;
 import java.util.Scanner;
-
 /**
  *
  * @author Sharp
@@ -64,10 +64,10 @@ public class Conta {
         }
     }
 
-    public boolean transferencia(Conta outra, double valor) {
+    public boolean transferencia(List<Conta> contas,int id, double valor) {
         if (valor <= getSaldo()) {
-            this.sacar();
-            outra.depositar();
+            this.saldo=this.saldo-valor;
+            contas.get(id).saldo=contas.get(id).saldo + valor;
             return true;
         } else {
             return false;
