@@ -38,10 +38,9 @@ public class UsuarioCliente {
         this.senha = senha;
     }
     
-   
-    
+
     public String getNomeCompleto() {
-        return nomeCompleto;
+        return this.nomeCompleto;
     }
 
     public void setNomeCompleto(String nomeCompleto) {
@@ -49,7 +48,7 @@ public class UsuarioCliente {
     }
 
     public String getNomeLogin() {
-        return nomeLogin;
+        return this.nomeLogin;
     }
 
     public void setNomeLogin(String nomeLogin) {
@@ -57,7 +56,7 @@ public class UsuarioCliente {
     }
 
     public String getSenha() {
-        return senha;
+        return this.senha;
     }
 
     public void setSenha(String senha) {
@@ -65,7 +64,7 @@ public class UsuarioCliente {
     }
 
     public int getAno() {
-        return ano;
+        return this.ano;
     }
 
     public void setAno(int ano) {
@@ -73,7 +72,7 @@ public class UsuarioCliente {
     }
    
     public int getDia() {
-        return dia;
+        return this.dia;
     }
 
     public void setDia(int dia) {
@@ -81,7 +80,7 @@ public class UsuarioCliente {
     }
 
     public int getMes() {
-        return mes;
+        return this.mes;
     }
 
     public void setMes(int mes) {
