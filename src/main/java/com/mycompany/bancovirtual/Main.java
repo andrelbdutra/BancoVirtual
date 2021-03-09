@@ -26,13 +26,13 @@ public class Main {
             if (loop1 == 1) { // Cria conta nova.
                 contas.add(new Conta());
                 System.out.println("Conta criada com sucesso.");
-                System.out.println(contas.get(0).toString());
             } else if (loop1 == 2) { // Loga na conta.
                 System.out.println("Digite o nome de login: ");
                 String nomeLoginDigitado = teclado.next();
                 System.out.println("Digite a senha: ");
                 String senhaDigitada = teclado.next();
-                for (int i = 0; i < Conta.getQuantidadeContas(); i++) {
+                System.out.println(Conta.getQuantidadeContas());
+                for (int i = 0; i <= Conta.getQuantidadeContas(); i++) {
                     if (nomeLoginDigitado.equals(contas.get(i).getCliente().getNomeLogin()) && senhaDigitada.equals(contas.get(i).getCliente().getSenha())) {
                         while (loop2 != 4) {
                             telaConta(contas.get(i).getCliente().getNomeCompleto(), contas.get(i).getSaldo());
@@ -49,6 +49,7 @@ public class Main {
                                 contas.get(i).transferencia(contas, numero, valor);
                             }
                         }
+                        loop2 = 0;
                         i = Conta.getQuantidadeContas();
                     }
                 }
