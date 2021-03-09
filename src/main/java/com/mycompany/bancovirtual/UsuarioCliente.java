@@ -28,66 +28,9 @@ public class UsuarioCliente extends Usuario {
 
         System.out.println("Digite a senha de usuario:");
         senha = teclado.next();
-<<<<<<< HEAD
-        this.nomeCompleto = nomeCompleto;
-        this.nomeLogin = nomeLogin;
-        this.senha = senha;
-    }
-    
 
-    public String getNomeCompleto() {
-        return this.nomeCompleto;
-    }
-
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
-
-    public String getNomeLogin() {
-        return this.nomeLogin;
-    }
-
-    public void setNomeLogin(String nomeLogin) {
-        this.nomeLogin = nomeLogin;
-    }
-
-    public String getSenha() {
-        return this.senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public int getAno() {
-        return this.ano;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
-   
-    public int getDia() {
-        return this.dia;
-    }
-
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public int getMes() {
-        return this.mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-    
-=======
         setNomeCompleto(nomeCompleto);
         setNomeLogin(nomeLogin);
         setSenha(senha);
     }
-
->>>>>>> 26ee388e56122edae89a0480bb8127d996829b16
 }
