@@ -5,12 +5,15 @@
  */
 package View;
 
+import com.mycompany.bancovirtual.Conta;
+import java.awt.HeadlessException;
+import java.util.List;
+
 /**
  *
  * @author Sharp
  */
 public class TelaInicial extends javax.swing.JFrame {
-
     /**
      * Creates new form TelaInicial
      */
@@ -18,6 +21,7 @@ public class TelaInicial extends javax.swing.JFrame {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

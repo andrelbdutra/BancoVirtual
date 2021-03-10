@@ -7,6 +7,7 @@ package com.mycompany.bancovirtual;
 
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Sharp
@@ -22,6 +23,12 @@ public class Conta {
         this.ID = quantidadeContas++;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
+    }
+
+    public Conta(UsuarioCliente cliente) {
+        this.ID = quantidadeContas++;
+        this.saldo = 0;
+        this.cliente = cliente;
     }
     
     
@@ -44,23 +51,16 @@ public class Conta {
         return s;
     }
 
-    public void depositar() {
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o valor a ser depositado: ");
-        double valor = teclado.nextInt();
+    public void depositar(double valor) {
         this.saldo += valor;
-        System.out.println("Deposito realizado com sucesso.");
     }
 
-    public void sacar() {
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite o valor a ser sacado: ");
-        double valor = teclado.nextInt();
+    public void sacar(double valor) { 
         if (this.getSaldo() - valor < 0) {
-            System.out.println("Saldo indisponivel.");
+            JOptionPane.showMessageDialog(null, "Saldo indisponivel!");
         } else {
-            this.saldo -= valor;
-            System.out.println("Saque realizado com sucesso.");
+            this.setSaldo(this.saldo-valor);
+            JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!");
         }
     }
 

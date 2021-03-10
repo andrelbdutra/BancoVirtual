@@ -5,16 +5,21 @@
  */
 package View;
 
+import com.mycompany.bancovirtual.Conta;
+import com.mycompany.bancovirtual.ListaConta;
 import javax.swing.JOptionPane;
+import com.mycompany.bancovirtual.Main;
+import java.awt.HeadlessException;
+import java.util.List;
 
 /**
  *
  * @author Sharp
  */
 public class TelaLogin extends javax.swing.JFrame {
-
     /**
      * Creates new form TelaLogin
+     * @param contas
      */
     public TelaLogin() {
         initComponents();
@@ -144,12 +149,15 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(this.checkLogin(txtLogin.getText(),new String(txtSenha.getPassword()))){
-            new TelaPrincipal().setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Acesso negado!", "Alerta", JOptionPane.WARNING_MESSAGE);
-        }
+        for(int i = 0; i <= Conta.getQuantidadeContas(); i++){
+            if (txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())){
+                new TelaPrincipal(i).setVisible(true);;
+                this.dispose();
+            }
+            else if(i == Conta.getQuantidadeContas()){
+                JOptionPane.showMessageDialog(null, "Acesso negado!", "Alerta", JOptionPane.WARNING_MESSAGE);
+            }
+        } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

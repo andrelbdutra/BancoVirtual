@@ -12,6 +12,9 @@ import java.util.Scanner;
  * @author Pichau
  */
 public class UsuarioCliente extends Usuario {
+    private String nomeCompleto;
+    private String nomeLogin;
+    private String senha;
 
     public UsuarioCliente() {
         Scanner teclado = new Scanner(System.in);
@@ -28,6 +31,12 @@ public class UsuarioCliente extends Usuario {
         System.out.println("Digite a senha de usuario:");
         senha = teclado.next();
 
+        setNomeCompleto(nomeCompleto);
+        setNomeLogin(nomeLogin);
+        setSenha(senha);
+    }
+    
+    public UsuarioCliente(String nomeCompleto, String nomeLogin,String senha){
         setNomeCompleto(nomeCompleto);
         setNomeLogin(nomeLogin);
         setSenha(senha);
