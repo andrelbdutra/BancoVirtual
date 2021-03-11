@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  * @author Sharp
  */
 public class TelaLogin extends javax.swing.JFrame {
+
     /**
      * Creates new form TelaLogin
      */
@@ -30,6 +31,7 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
@@ -38,6 +40,9 @@ public class TelaLogin extends javax.swing.JFrame {
         jButtonEntrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        cliente = new javax.swing.JRadioButton();
+        gerente = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acesso");
@@ -88,10 +93,32 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Voltar");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(cliente);
+        cliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cliente.setText("Cliente");
+
+        buttonGroup1.add(gerente);
+        gerente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        gerente.setText("Gerente");
+        gerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,8 +136,16 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cliente))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButtonEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(gerente, javax.swing.GroupLayout.Alignment.TRAILING)))))))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,9 +160,15 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButtonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gerente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,16 +191,34 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        for(int i = 0; i < Conta.getQuantidadeContas(); i++){
-            if (txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())){
-                new TelaPrincipal(i).setVisible(true);;
+        if (Conta.getQuantidadeContas() == 0) {
+            JOptionPane.showMessageDialog(null, "Acesso negado! conta inexistente", "Alerta", JOptionPane.WARNING_MESSAGE);
+        }
+        for(int i = 0; i < Conta.getQuantidadeContas();i++){
+            if(cliente.isSelected()){
+            if (txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())) {
+                new TelaPrincipal(i).setVisible(true);
                 this.dispose();
+                break;
             }
-            else if(i == Conta.getQuantidadeContas()){
-                JOptionPane.showMessageDialog(null, "Acesso negado! Login ou senha incorretos.", "Alerta", JOptionPane.WARNING_MESSAGE);
+                }else if(gerente.isSelected()){
+                if(txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())){
+                new TelaGerente().setVisible(true);
+                this.dispose();
+                break;
             }
-        } 
+            }
+        }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new TelaInicial().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void gerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gerenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,6 +256,10 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton cliente;
+    private javax.swing.JRadioButton gerente;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

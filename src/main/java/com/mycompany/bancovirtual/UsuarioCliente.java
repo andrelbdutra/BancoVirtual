@@ -12,10 +12,7 @@ import java.util.Scanner;
  * @author Pichau
  */
 public class UsuarioCliente extends Usuario {
-    private String nomeCompleto;
-    private String nomeLogin;
-    private String senha;
-
+    
     public UsuarioCliente() {
         Scanner teclado = new Scanner(System.in);
         String nomeCompleto;
