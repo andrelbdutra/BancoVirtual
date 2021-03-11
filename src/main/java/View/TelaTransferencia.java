@@ -12,22 +12,22 @@ import java.awt.HeadlessException;
  *
  * @author Pichau
  */
-public class TelaSaque extends javax.swing.JFrame {
+public class TelaTransferencia extends javax.swing.JFrame {
     private int id;
     /**
-     * Creates new form TelaSaque
+     * Creates new form TelaTransferencia
      * @param id
      */
-    public TelaSaque(int id) {
+    public TelaTransferencia(int id) {
         this.id = id;
         initComponents();
     }
 
-    public TelaSaque() throws HeadlessException {
+    public TelaTransferencia() throws HeadlessException {
     }
+    
+    
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,13 +40,15 @@ public class TelaSaque extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButtonVoltarTelaPrincipal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        txtValorTransferencia = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtSaque = new javax.swing.JTextField();
-        jButtonConcluirSaque = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
+        jButtonConcluir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtSaldo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,65 +63,58 @@ public class TelaSaque extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Digite o valor que deseja sacar.");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Saldo disponível");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Digite o valor da transferência:");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("$");
+        txtValorTransferencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtValorTransferencia.setBorder(null);
 
-        txtSaque.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        txtSaque.setBorder(null);
-        txtSaque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSaqueActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("$");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSaque, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtValorTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtSaque, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addComponent(jLabel3))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtValorTransferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(jLabel2))
         );
 
-        jButtonConcluirSaque.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonConcluirSaque.setText("Concluir");
-        jButtonConcluirSaque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jButtonConcluirSaque.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setText("Digite o ID da conta a ser tranferido:");
+
+        txtID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jButtonConcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonConcluir.setText("Concluir");
+        jButtonConcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jButtonConcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConcluirSaqueActionPerformed(evt);
+                jButtonConcluirActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("R$");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Saldo disponível");
 
-        txtSaldo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtSaldo.setText("exemplo");
-        txtSaldo.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                txtSaldoAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Exemplo");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("R$");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,37 +126,44 @@ public class TelaSaque extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButtonVoltarTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(72, 72, 72)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonConcluirSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtSaldo))
-                                .addComponent(jLabel1)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel5))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtID)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, Short.MAX_VALUE))))))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonVoltarTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addComponent(jButtonVoltarTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(jLabel4)
-                    .addComponent(txtSaldo))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(14, 14, 14)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButtonConcluirSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,24 +181,16 @@ public class TelaSaque extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSaqueActionPerformed
-
     private void jButtonVoltarTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaPrincipalActionPerformed
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
-    private void jButtonConcluirSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirSaqueActionPerformed
-        new ListaConta().getContas().get(id).sacar(Double.parseDouble(txtSaque.getText()));
+    private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
+        new ListaConta().getContas().get(id).transferencia(Integer.parseInt(txtID.getText()), Double.parseDouble(txtValorTransferencia.getText()));
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonConcluirSaqueActionPerformed
-
-    private void txtSaldoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtSaldoAncestorAdded
-        txtSaldo.setText(Double.toString(new ListaConta().getContas().get(id).getSaldo()));
-    }//GEN-LAST:event_txtSaldoAncestorAdded
+    }//GEN-LAST:event_jButtonConcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,34 +209,36 @@ public class TelaSaque extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSaque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSaque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSaque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaSaque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSaque().setVisible(true);
+                new TelaTransferencia().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonConcluirSaque;
+    private javax.swing.JButton jButtonConcluir;
     private javax.swing.JButton jButtonVoltarTelaPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel txtSaldo;
-    private javax.swing.JTextField txtSaque;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtValorTransferencia;
     // End of variables declaration//GEN-END:variables
 }

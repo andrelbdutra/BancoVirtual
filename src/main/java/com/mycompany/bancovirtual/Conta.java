@@ -64,13 +64,13 @@ public class Conta {
         }
     }
 
-    public boolean transferencia(List<Conta> contas,int id, double valor) {
+    public void transferencia(int id, double valor) {
         if (valor <= getSaldo()) {
-            this.saldo=this.saldo-valor;
-            contas.get(id).saldo=contas.get(id).saldo + valor;
-            return true;
+            this.saldo = this.saldo - valor;
+            new ListaConta().getContas().get(id).setSaldo(new ListaConta().getContas().get(id).getSaldo() + valor);
+            JOptionPane.showMessageDialog(null, "Transação efetuada com sucesso!");
         } else {
-            return false;
+            JOptionPane.showMessageDialog(null, "Saldo indisponivel!");
         }
     }
 
