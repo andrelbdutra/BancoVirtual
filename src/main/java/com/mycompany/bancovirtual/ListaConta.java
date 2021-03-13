@@ -25,7 +25,7 @@ public class ListaConta {
 
     public void adicionaElemento(UsuarioCliente cliente) {
 
-        contas.add(new Conta(cliente));
+        contas.add(new ContaCorrente(cliente));
     }
     public void adicionaElementoPoupanca(UsuarioCliente cliente) {
 
