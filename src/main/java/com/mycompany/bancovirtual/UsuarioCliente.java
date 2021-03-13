@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Pichau
  */
 public class UsuarioCliente extends Usuario {
-    
+
     public UsuarioCliente() {
 
     }

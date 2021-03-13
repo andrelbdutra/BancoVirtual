@@ -187,9 +187,17 @@ public class TelaTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
-        new ListaConta().getContas().get(id).transferencia(Integer.parseInt(txtID.getText()), Double.parseDouble(txtValorTransferencia.getText()));
-        new TelaPrincipal(id).setVisible(true);
-        this.dispose();
+        int valor = 0;
+        valor = new ListaConta().getContas().get(id).leNumeroValido(txtValorTransferencia.getText());
+        if(valor == 1){ // Se a validação for 1, chama a tela novamente.
+            new TelaTransferencia(id).setVisible(true);
+            this.dispose();
+        }
+        else{ // Se a validação for 0, executa a função de deposito.
+            new ListaConta().getContas().get(id).transferencia(Integer.parseInt(txtID.getText()), Double.parseDouble(txtValorTransferencia.getText()));
+            new TelaPrincipal(id).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonConcluirActionPerformed
 
     /**

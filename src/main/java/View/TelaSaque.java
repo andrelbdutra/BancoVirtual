@@ -189,9 +189,17 @@ public class TelaSaque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
     private void jButtonConcluirSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirSaqueActionPerformed
-        new ListaConta().getContas().get(id).sacar(Double.parseDouble(txtSaque.getText()));
-        new TelaPrincipal(id).setVisible(true);
-        this.dispose();
+        int valor = 0;
+        valor = new ListaConta().getContas().get(id).leNumeroValido(txtSaque.getText());
+        if(valor == 1){ // Se a validação for 1, chama a tela novamente.
+            new TelaSaque(id).setVisible(true);
+            this.dispose();
+        }
+        else{ // Se a validação for 0, executa a função de Saque.
+            new ListaConta().getContas().get(id).sacar(Double.parseDouble(txtSaque.getText()));
+            new TelaPrincipal(id).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonConcluirSaqueActionPerformed
 
     private void txtSaldoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtSaldoAncestorAdded

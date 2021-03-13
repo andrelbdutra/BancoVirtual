@@ -7,6 +7,7 @@ package View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
+import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
 
 /**
@@ -170,10 +171,18 @@ public class TelaDeposito extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new ListaConta().getContas().get(id).depositar(Double.parseDouble(txtDeposito.getText()));
-        JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso!");
-        new TelaPrincipal(id).setVisible(true);
-        this.dispose();
+        int valor = 0;
+        valor = new ListaConta().getContas().get(id).leNumeroValido(txtDeposito.getText());
+        if(valor == 1){ // Se a validação for 1, chama a tela novamente.
+            new TelaDeposito(id).setVisible(true);
+            this.dispose();
+        }
+        else{  // Se a validação for 0, executa a função de deposito.
+            new ListaConta().getContas().get(id).depositar(Double.parseDouble(txtDeposito.getText()));
+            JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso!");
+            new TelaPrincipal(id).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
