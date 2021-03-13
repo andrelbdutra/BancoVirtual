@@ -5,28 +5,24 @@
  */
 package View;
 
-import com.mycompany.bancovirtual.ListaConta;
+import com.mycompany.bancovirtual.ListaContaPoupanca;
 import java.awt.HeadlessException;
 
 /**
  *
- * @author Pichau
+ * @author Sharp
  */
-public class TelaTransferencia extends javax.swing.JFrame {
-    private int id;
+public class TelaTransferenciaPoupanca extends javax.swing.JFrame {
+private int id;
     /**
-     * Creates new form TelaTransferencia
-     * @param id
+     * Creates new form TelaTransferenciaPoupanca
      */
-    public TelaTransferencia(int id) {
-        this.id = id;
+    public TelaTransferenciaPoupanca(int id) {
+        this.id=id;
         initComponents();
     }
-
-    public TelaTransferencia() throws HeadlessException {
+    public TelaTransferenciaPoupanca() throws HeadlessException {
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,7 +137,7 @@ public class TelaTransferencia extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(txtID)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, Short.MAX_VALUE))))))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +159,7 @@ public class TelaTransferencia extends javax.swing.JFrame {
                 .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,7 +183,7 @@ public class TelaTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
-        new ListaConta().getContas().get(id).transferencia(Integer.parseInt(txtID.getText()), Double.parseDouble(txtValorTransferencia.getText()));
+        new ListaContaPoupanca().getContasPoupanca().get(id).transferencia(Integer.parseInt(txtID.getText()), Double.parseDouble(txtValorTransferencia.getText()));
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonConcluirActionPerformed
@@ -209,20 +205,20 @@ public class TelaTransferencia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferenciaPoupanca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferenciaPoupanca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferenciaPoupanca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaTransferenciaPoupanca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaTransferencia().setVisible(true);
+                new TelaTransferenciaPoupanca().setVisible(true);
             }
         });
     }

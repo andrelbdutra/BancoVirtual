@@ -13,22 +13,20 @@ import java.util.List;
  * @author Pichau
  */
 public class ListaConta {
-    
-    static private List<Conta> contas = new ArrayList<>();
 
+    static private List<Conta> contas = new ArrayList<>();   
     public ListaConta() {
-        
+
     }
 
     public List<Conta> getContas() {
         return ListaConta.contas;
     }
-    
-    public void adicionaElemento(UsuarioCliente cliente){
-        
+
+    public void adicionaElemento(UsuarioCliente cliente) {
+
         contas.add(new Conta(cliente));
     }
-    
-    
-    
+
+
 }

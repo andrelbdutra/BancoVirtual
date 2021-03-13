@@ -5,21 +5,34 @@
  */
 package com.mycompany.bancovirtual;
 
+import java.util.Calendar;
+import java.util.Date;
 
-import  java.util.Calendar ;
-import  java.util.Date ;
 /**
  *
  * @author Sharp
  */
-public class ContaPoupanca extends Conta{
-    private  int diaRendimento;
+public class ContaPoupanca extends Conta {
 
-    public  int  getDiaRendimento () {
+    private int diaRendimento;
+
+    public ContaPoupanca() {
+        this.diaRendimento = 13;
+        this.saldo = 0;
+        this.cliente = new UsuarioCliente();
+    }
+
+    public ContaPoupanca(UsuarioCliente cliente) {
+        this.diaRendimento = 13;
+        this.saldo = 0;
+        this.cliente = cliente;
+    }
+
+    public int getDiaRendimento() {
         return diaRendimento;
     }
 
-    public  void  setDiaRendimento ( int  diaRendimento ) {
+    public void setDiaRendimento(int diaRendimento) {
         this.diaRendimento = diaRendimento;
     }
 
@@ -31,16 +44,20 @@ public class ContaPoupanca extends Conta{
         s += " ] ";
         return s;
     }
-    
-    public  boolean  calcularNovoSaldo ( double  taxaRendimento ) {
-        
-        Calendar hoje =  Calendar.getInstance ();
-        
-        if (diaRendimento == hoje . get ( Calendar.DAY_OF_MONTH )) {
+
+    @Override
+    public int getID() {
+        return this.ID;
+    }
+    public boolean calcularNovoSaldo(double taxaRendimento) {
+
+        Calendar hoje = Calendar.getInstance();
+
+        if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
             // saldo + = saldo * taxaRendimento;
             this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
-            return  true ;
+            return true;
         }
-        return  false ;
+        return false;
     }
 }

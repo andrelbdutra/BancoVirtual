@@ -14,9 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class Conta {
 
-    private int ID;
-    private UsuarioCliente cliente;
-    private double saldo;
+    protected int ID;
+    protected UsuarioCliente cliente;
+    protected double saldo;
     private static int quantidadeContas;
 
     public Conta(){
@@ -30,8 +30,7 @@ public class Conta {
         this.saldo = 0;
         this.cliente = cliente;
     }
-    
-    
+   
     
     public double getSaldo() {
         return saldo;
