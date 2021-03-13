@@ -13,26 +13,7 @@ import java.util.Scanner;
  */
 public class UsuarioCliente extends Usuario {
     
-    public UsuarioCliente() {
-        Scanner teclado = new Scanner(System.in);
-        String nomeCompleto;
-        String nomeLogin;
-        String senha;
-
-        System.out.println("Digite o nome do cliente:");
-        nomeCompleto = teclado.next();
-
-        System.out.println("Digite o nome de login: ");
-        nomeLogin = teclado.next();
-
-        System.out.println("Digite a senha de usuario:");
-        senha = teclado.next();
-
-        setNomeCompleto(nomeCompleto);
-        setNomeLogin(nomeLogin);
-        setSenha(senha);
-    }
-    
+ 
     public UsuarioCliente(String nomeCompleto, String nomeLogin,String senha){
         setNomeCompleto(nomeCompleto);
         setNomeLogin(nomeLogin);

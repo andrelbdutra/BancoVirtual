@@ -5,8 +5,7 @@
  */
 package com.mycompany.bancovirtual;
 
-import java.util.List;
-import java.util.Scanner;
+import View.TelaDeposito;
 import javax.swing.JOptionPane;
 /**
  *
@@ -19,19 +18,11 @@ public class Conta {
     private double saldo;
     private static int quantidadeContas;
 
-    public Conta(){
-        this.ID = quantidadeContas++;
-        this.saldo = 0;
-        this.cliente = new UsuarioCliente();
-    }
-
     public Conta(UsuarioCliente cliente) {
         this.ID = quantidadeContas++;
         this.saldo = 0;
         this.cliente = cliente;
-    }
-    
-    
+    }   
     
     public double getSaldo() {
         return saldo;
@@ -100,5 +91,23 @@ public class Conta {
      */
     public static int getQuantidadeContas() {
         return quantidadeContas;
+    }
+    
+    public int leNumeroValido(String valorDigitado){
+        int valor = 0;
+        try{
+            Double.parseDouble(valorDigitado);
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Valor Digitado é invalido. Tente um valor numerico.");
+            valor = 1;
+            return valor;
+        }
+        if(Double.parseDouble(valorDigitado) < 0){
+            JOptionPane.showMessageDialog(null, "Valor Digitado é invalido. Tente um numero positivo");
+            valor = 1;
+            return valor;
+        }
+        else
+            return valor;
     }
 }

@@ -15,6 +15,10 @@ import  java.util.Date ;
 public class ContaPoupanca extends Conta{
     private  int diaRendimento;
 
+    public ContaPoupanca(UsuarioCliente cliente) {
+        super(cliente);
+    }
+
     public  int  getDiaRendimento () {
         return diaRendimento;
     }
