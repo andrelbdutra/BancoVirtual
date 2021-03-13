@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     private int id;
-    
+    private double novoSaldo;
     /**
      * Creates new form TelaPrincipal
      * @param val
@@ -322,8 +322,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIDAncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new ListaConta().getContas().get(id).calcularNovoSaldo();
-        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de:"+ new ListaConta().getContas().get(id).getSaldo());
+        novoSaldo = new ListaConta().getContas().get(id).calcularNovoSaldo();
+        if(novoSaldo != new ListaConta().getContas().get(id).getSaldo())
+        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de: "+ novoSaldo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

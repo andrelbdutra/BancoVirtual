@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class ContaPoupanca extends Conta {
 
     public ContaPoupanca() {
-        diaRendimento=13;
+        diaRendimento = 13;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
     }
@@ -50,15 +50,20 @@ public class ContaPoupanca extends Conta {
     }
 
     @Override
-    public void calcularNovoSaldo() {
-        double taxaRendimento=0.1;
+    public double calcularNovoSaldo() {
+
+        double novoSaldo;
+        double taxaRendimento = 0.1;
         Calendar hoje = Calendar.getInstance();
 
         if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
             // saldo + = saldo * taxaRendimento;
-            this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+            novoSaldo=(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+            return novoSaldo;
 
-        }else 
-            JOptionPane.showMessageDialog(null,"Não é dia de verificar o saldo");
+        } else {
+            JOptionPane.showMessageDialog(null, "Não é dia de verificar o saldo");
+            return this.getSaldo();
+        }
     }
 }

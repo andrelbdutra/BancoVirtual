@@ -201,12 +201,14 @@ public class TelaLogin extends javax.swing.JFrame {
                     new TelaPrincipal(i).setVisible(true);
                     this.dispose();
 
-                }
+                }else
+                    JOptionPane.showMessageDialog(null, "Acesso negado! dados incorretos", "Alerta", JOptionPane.WARNING_MESSAGE);
             } else if (gerente.isSelected()) {
                 if (txtLogin.getText().equals("admin") && txtSenha.getText().equals("admin")) {
                     new TelaGerente().setVisible(true);
                     this.dispose();
-                }
+                }else
+                    JOptionPane.showMessageDialog(null, "Acesso negado! dados incorretos", "Alerta", JOptionPane.WARNING_MESSAGE);
             }
         }
 
