@@ -12,8 +12,11 @@ import java.util.Scanner;
  * @author Pichau
  */
 public class UsuarioCliente extends Usuario {
+
+    public UsuarioCliente() {
+
+    }
     
- 
     public UsuarioCliente(String nomeCompleto, String nomeLogin,String senha){
         setNomeCompleto(nomeCompleto);
         setNomeLogin(nomeLogin);

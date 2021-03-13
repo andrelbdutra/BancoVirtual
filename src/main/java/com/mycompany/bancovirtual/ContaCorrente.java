@@ -5,25 +5,20 @@
  */
 package com.mycompany.bancovirtual;
 
-import java.util.Calendar;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Sharp
  */
-public class ContaPoupanca extends Conta {
+public class ContaCorrente extends Conta {
 
-
-    public ContaPoupanca() {
-        diaRendimento=13;
+    public ContaCorrente() {        
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
     }
 
-    public ContaPoupanca(UsuarioCliente cliente) {
-        diaRendimento = 13;
+    public ContaCorrente(UsuarioCliente cliente) {
         this.saldo = 0;
         this.cliente = cliente;
     }
@@ -38,8 +33,7 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public String toString() {
-        String s = " ContaPoupança [ ";
-        s += " ; dia de rendimento: " + diaRendimento;
+        String s = " ContaCorrente [ ";       
         s += " ; " + super.toString();
         s += " ] ";
         return s;
@@ -52,14 +46,7 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public void calcularNovoSaldo() {
-        double taxaRendimento=0.1;
-        Calendar hoje = Calendar.getInstance();
+            JOptionPane.showMessageDialog(null, "Você não possui rendimento mensal","Alerta", JOptionPane.WARNING_MESSAGE);
+        }
+ }
 
-        if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
-            // saldo + = saldo * taxaRendimento;
-            this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
-
-        }else 
-            JOptionPane.showMessageDialog(null,"Não é dia de verificar o saldo");
-    }
-}

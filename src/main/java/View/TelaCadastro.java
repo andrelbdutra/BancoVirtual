@@ -7,6 +7,7 @@ package View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import com.mycompany.bancovirtual.UsuarioCliente;
+import com.mycompany.bancovirtual.UsuarioGerente;
 
 /**
  *
@@ -31,6 +32,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,6 +50,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -92,6 +95,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         buttonGroup1.add(contaCorrente);
         contaCorrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         contaCorrente.setText("Conta Corrente");
+        contaCorrente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contaCorrenteActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(contaPoupanca);
         contaPoupanca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -108,10 +116,6 @@ public class TelaCadastro extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(contaCorrente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contaPoupanca))
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
@@ -121,8 +125,12 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNomeCompleto)
                     .addComponent(txtNomeLogin)
-                    .addComponent(txtSenha))
-                .addContainerGap(116, Short.MAX_VALUE))
+                    .addComponent(txtSenha)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(contaCorrente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contaPoupanca)))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,11 +149,11 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(contaCorrente)
                     .addComponent(contaPoupanca))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,22 +176,26 @@ public class TelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
+
         UsuarioCliente cliente = new UsuarioCliente(txtNomeCompleto.getText(), txtNomeLogin.getText(), txtSenha.getText());
         if (contaCorrente.isSelected()) {
             new ListaConta().adicionaElemento(cliente);
             new TelaInicial().setVisible(true);
             this.dispose();
         } else if (contaPoupanca.isSelected()) {
-            new ListaConta().adicionaElemento(cliente);
+            new ListaConta().adicionaElementoPoupanca(cliente);
             new TelaInicial().setVisible(true);
             this.dispose();
-        }
     }//GEN-LAST:event_jButtonConcluirActionPerformed
-
+    }
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         new TelaInicial().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void contaCorrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contaCorrenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contaCorrenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,6 +234,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JRadioButton contaCorrente;
     private javax.swing.JRadioButton contaPoupanca;
     private javax.swing.JButton jButtonConcluir;
