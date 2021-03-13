@@ -5,9 +5,11 @@
  */
 package com.mycompany.bancovirtual;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sharp
@@ -17,21 +19,23 @@ public class Conta {
     protected int ID;
     protected UsuarioCliente cliente;
     protected double saldo;
+    protected int diaRendimento;
     private static int quantidadeContas;
 
-    public Conta(){
+    public Conta() {
         this.ID = quantidadeContas++;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
+        this.diaRendimento = diaRendimento;
     }
 
     public Conta(UsuarioCliente cliente) {
         this.ID = quantidadeContas++;
         this.saldo = 0;
         this.cliente = cliente;
+        this.diaRendimento = diaRendimento;
     }
-   
-    
+
     public double getSaldo() {
         return saldo;
     }
@@ -54,11 +58,11 @@ public class Conta {
         this.saldo += valor;
     }
 
-    public void sacar(double valor) { 
+    public void sacar(double valor) {
         if (this.getSaldo() - valor < 0) {
             JOptionPane.showMessageDialog(null, "Saldo indisponivel!");
         } else {
-            this.setSaldo(this.saldo-valor);
+            this.setSaldo(this.saldo - valor);
             JOptionPane.showMessageDialog(null, "Saque realizado com sucesso!");
         }
     }
@@ -99,5 +103,16 @@ public class Conta {
      */
     public static int getQuantidadeContas() {
         return quantidadeContas;
+    }
+
+    public void calcularNovoSaldo() {
+        double taxaRendimento = 0;
+        Calendar hoje = Calendar.getInstance();
+
+        if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
+            // saldo + = saldo * taxaRendimento;
+            this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+
+        }
     }
 }

@@ -27,6 +27,9 @@ public class ListaConta {
 
         contas.add(new Conta(cliente));
     }
+    public void adicionaElementoPoupanca(UsuarioCliente cliente) {
 
+        contas.add(new ContaPoupanca(cliente));
+    }
 
 }

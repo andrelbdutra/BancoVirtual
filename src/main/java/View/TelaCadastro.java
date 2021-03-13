@@ -6,7 +6,6 @@
 package View;
 
 import com.mycompany.bancovirtual.ListaConta;
-import com.mycompany.bancovirtual.ListaContaPoupanca;
 import com.mycompany.bancovirtual.UsuarioCliente;
 import com.mycompany.bancovirtual.UsuarioGerente;
 
@@ -184,7 +183,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             new TelaInicial().setVisible(true);
             this.dispose();
         } else if (contaPoupanca.isSelected()) {
-            new ListaContaPoupanca().adicionaElementoPoupanca(cliente);
+            new ListaConta().adicionaElementoPoupanca(cliente);
             new TelaInicial().setVisible(true);
             this.dispose();
     }//GEN-LAST:event_jButtonConcluirActionPerformed
