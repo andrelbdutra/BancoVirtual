@@ -45,8 +45,9 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    public void calcularNovoSaldo() {
+    public double calcularNovoSaldo() {
             JOptionPane.showMessageDialog(null, "Você não possui rendimento mensal","Alerta", JOptionPane.WARNING_MESSAGE);
+            return this.getSaldo();
         }
  }
 

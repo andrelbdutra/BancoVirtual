@@ -124,14 +124,9 @@ public class Conta {
             return valor;
     }
 
-    public void calcularNovoSaldo() {
-        double taxaRendimento = 0;
-        Calendar hoje = Calendar.getInstance();
-
-        if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
-            // saldo + = saldo * taxaRendimento;
-            this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
-
-        }
+    public double calcularNovoSaldo() {
+        JOptionPane.showMessageDialog(null, "Você não possui rendimento mensal", "Alerta", JOptionPane.WARNING_MESSAGE);
+        return this.getSaldo();
     }
+
 }

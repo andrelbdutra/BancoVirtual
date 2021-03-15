@@ -51,14 +51,21 @@ public class ContaPoupanca extends Conta {
     }
 
     @Override
-    public void calcularNovoSaldo() {
+
+    public double calcularNovoSaldo() {
+
+        double novoSaldo;
+        double taxaRendimento = 0.1;
         Calendar hoje = Calendar.getInstance();
 
         if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
             // saldo + = saldo * taxaRendimento;
-            this.setSaldo(this.getSaldo() + (this.getSaldo()/100));
+            novoSaldo=(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+            return novoSaldo;
 
-        }else 
-            JOptionPane.showMessageDialog(null,"Não é dia de verificar o saldo");
+        } else {
+            JOptionPane.showMessageDialog(null, "Não é dia de verificar o saldo");
+            return this.getSaldo();
+        }
     }
 }

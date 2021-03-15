@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     private int id;
-    
+    private double novoSaldo;
     /**
      * Creates new form TelaPrincipal
      * @param id
@@ -331,6 +331,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtID.setText(Integer.toString(new ListaConta().getContas().get(id).getID()));
     }//GEN-LAST:event_txtIDAncestorAdded
 
+
     private void jButtonNovoSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoSaldoActionPerformed
         new ListaConta().getContas().get(id).calcularNovoSaldo();
         DecimalFormat formatador = new DecimalFormat("0.00");
@@ -339,6 +340,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonNovoSaldoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        novoSaldo = new ListaConta().getContas().get(id).calcularNovoSaldo();
+        if(novoSaldo != new ListaConta().getContas().get(id).getSaldo())
+        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de: "+ novoSaldo);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConfigurações;
