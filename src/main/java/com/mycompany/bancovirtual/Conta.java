@@ -19,22 +19,19 @@ public class Conta {
 
     protected int ID;
     protected UsuarioCliente cliente;
-    protected double saldo;
-    protected int diaRendimento;
+    protected double saldo;   
     private static int quantidadeContas;
 
     public Conta() {
         this.ID = quantidadeContas++;
         this.saldo = 0;
-        this.cliente = new UsuarioCliente();
-        this.diaRendimento = diaRendimento;
+        this.cliente = new UsuarioCliente();        
     }
 
     public Conta(UsuarioCliente cliente) {
         this.ID = quantidadeContas++;
         this.saldo = 0;
         this.cliente = cliente;
-        this.diaRendimento = diaRendimento;
     }
 
     public double getSaldo() {

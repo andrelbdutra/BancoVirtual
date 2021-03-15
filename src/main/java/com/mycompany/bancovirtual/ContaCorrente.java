@@ -23,14 +23,6 @@ public class ContaCorrente extends Conta {
         this.cliente = cliente;
     }
 
-    public int getDiaRendimento() {
-        return diaRendimento;
-    }
-
-    public void setDiaRendimento(int diaRendimento) {
-        this.diaRendimento = diaRendimento;
-    }
-
     @Override
     public String toString() {
         String s = " ContaCorrente [ ";       

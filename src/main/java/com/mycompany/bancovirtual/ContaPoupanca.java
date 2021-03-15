@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class ContaPoupanca extends Conta {
 
+    private int diaRendimento ;
 
     public ContaPoupanca() {
         diaRendimento = 13;
@@ -59,7 +60,7 @@ public class ContaPoupanca extends Conta {
 
         if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
             // saldo + = saldo * taxaRendimento;
-            novoSaldo=(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+            novoSaldo = (this.getSaldo() + (this.getSaldo() * taxaRendimento));
             return novoSaldo;
 
         } else {
