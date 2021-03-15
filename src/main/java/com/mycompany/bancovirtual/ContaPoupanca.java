@@ -17,13 +17,14 @@ public class ContaPoupanca extends Conta {
 
 
     public ContaPoupanca() {
-        diaRendimento=14;
+
+        diaRendimento=15;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
     }
 
     public ContaPoupanca(UsuarioCliente cliente) {
-        diaRendimento = 14;
+        diaRendimento = 15;
         this.saldo = 0;
         this.cliente = cliente;
     }
@@ -51,7 +52,6 @@ public class ContaPoupanca extends Conta {
     }
 
     @Override
-
     public double calcularNovoSaldo() {
 
         double novoSaldo;

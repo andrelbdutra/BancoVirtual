@@ -332,19 +332,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIDAncestorAdded
 
 
-    private void jButtonNovoSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoSaldoActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoSaldoActionPerformed
+        /* Possivel botão
         new ListaConta().getContas().get(id).calcularNovoSaldo();
         DecimalFormat formatador = new DecimalFormat("0.00");
         String Saldo = formatador.format(new ListaConta().getContas().get(id).getSaldo());
         JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de:"+ Saldo);
         new TelaPrincipal().setVisible(true);
         this.dispose();
+        */
     }//GEN-LAST:event_jButtonNovoSaldoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonNovoSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Calcula o novo saldo com rendimento mensal.
         novoSaldo = new ListaConta().getContas().get(id).calcularNovoSaldo();
+        DecimalFormat formatador = new DecimalFormat("0.00");
+        String Saldo = formatador.format(novoSaldo);
         if(novoSaldo != new ListaConta().getContas().get(id).getSaldo())
-        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de: "+ novoSaldo);
+        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de: "+ Saldo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
