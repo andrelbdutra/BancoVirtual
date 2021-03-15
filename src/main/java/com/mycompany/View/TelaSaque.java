@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.mycompany.View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
@@ -112,10 +112,10 @@ public class TelaSaque extends javax.swing.JFrame {
         txtSaldo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtSaldo.setText("exemplo");
         txtSaldo.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtSaldoAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -189,8 +189,9 @@ public class TelaSaque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
     private void jButtonConcluirSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirSaqueActionPerformed
+        // 
         int valor = 0;
-        valor = new ListaConta().getContas().get(id).leNumeroValido(txtSaque.getText());
+        valor = new ListaConta().getContas().get(id).leNumeroValido(txtSaque.getText()); // Chama a função que valida a entrada.
         if(valor == 1){ // Se a validação for 1, chama a tela novamente.
             new TelaSaque(id).setVisible(true);
             this.dispose();
@@ -203,6 +204,7 @@ public class TelaSaque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConcluirSaqueActionPerformed
 
     private void txtSaldoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtSaldoAncestorAdded
+        // Imprime na tela o saldo atual disponivel na conta.
         txtSaldo.setText(Double.toString(new ListaConta().getContas().get(id).getSaldo()));
     }//GEN-LAST:event_txtSaldoAncestorAdded
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.mycompany.View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
@@ -24,9 +24,7 @@ public class TelaEditaNomeCompleto extends javax.swing.JFrame {
     }
 
     public TelaEditaNomeCompleto() throws HeadlessException {
-    }
-    
-    
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,10 +62,10 @@ public class TelaEditaNomeCompleto extends javax.swing.JFrame {
         txtNomeCompleto.setText("Exemplo");
         txtNomeCompleto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtNomeCompleto.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtNomeCompletoAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -134,11 +132,13 @@ public class TelaEditaNomeCompleto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVoltarTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaPrincipalActionPerformed
+        // Volta para a tela principal.
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
+        // Edita o nome completo da conta.
         new ListaConta().getContas().get(id).getCliente().setNomeCompleto(txtNomeCompleto.getText());
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
@@ -149,43 +149,9 @@ public class TelaEditaNomeCompleto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeCompletoActionPerformed
 
     private void txtNomeCompletoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtNomeCompletoAncestorAdded
+        // Imprime na tela o nome completo da conta atual.
         txtNomeCompleto.setText(new ListaConta().getContas().get(id).getCliente().getNomeCompleto());
     }//GEN-LAST:event_txtNomeCompletoAncestorAdded
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaEditaNomeCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaEditaNomeCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaEditaNomeCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaEditaNomeCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaEditaNomeCompleto().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConcluir;

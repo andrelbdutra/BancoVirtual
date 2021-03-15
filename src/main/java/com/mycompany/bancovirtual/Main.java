@@ -5,7 +5,7 @@
  */
 package com.mycompany.bancovirtual;
 
-import View.TelaInicial;
+import com.mycompany.View.TelaInicial;
 
 /**
  *
@@ -14,7 +14,7 @@ import View.TelaInicial;
 public class Main {
 
     public static void main(String[] args) {
-        new TelaInicial().setVisible(true);
-        
+        // Chama a Tela Inicial e inicia o programa.
+        new TelaInicial().setVisible(true);        
     }
 }

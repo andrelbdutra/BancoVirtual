@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioGerente extends Usuario{
-
     public UsuarioGerente() {
 
     }

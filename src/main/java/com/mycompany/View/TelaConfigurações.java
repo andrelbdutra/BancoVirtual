@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.mycompany.View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,8 +25,6 @@ public class TelaConfigurações extends javax.swing.JFrame {
 
     public TelaConfigurações() throws HeadlessException {
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +50,6 @@ public class TelaConfigurações extends javax.swing.JFrame {
         jButtonSairDaConta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
@@ -77,10 +73,10 @@ public class TelaConfigurações extends javax.swing.JFrame {
         txtNomeCompleto.setForeground(new java.awt.Color(153, 153, 153));
         txtNomeCompleto.setText("ExemploNomeCompleto");
         txtNomeCompleto.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtNomeCompletoAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -93,10 +89,10 @@ public class TelaConfigurações extends javax.swing.JFrame {
         txtNomeLogin.setForeground(new java.awt.Color(153, 153, 153));
         txtNomeLogin.setText("ExemploNomeLogin");
         txtNomeLogin.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtNomeLoginAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -127,10 +123,10 @@ public class TelaConfigurações extends javax.swing.JFrame {
         txtSenha.setForeground(new java.awt.Color(153, 153, 153));
         txtSenha.setText("ExemploSenha");
         txtSenha.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtSenhaAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -242,6 +238,7 @@ public class TelaConfigurações extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarTelaPrincipalActionPerformed
 
     private void jButtonSairDaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairDaContaActionPerformed
+        // Volta para a tela inicial (sai da conta.)
         new TelaInicial().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSairDaContaActionPerformed
@@ -252,61 +249,36 @@ public class TelaConfigurações extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEditarNomeCompletoActionPerformed
 
     private void txtNomeCompletoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtNomeCompletoAncestorAdded
+        // Printa na tela o nome completo da conta.
         txtNomeCompleto.setText(new ListaConta().getContas().get(id).getCliente().getNomeCompleto());
     }//GEN-LAST:event_txtNomeCompletoAncestorAdded
 
     private void txtNomeLoginAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtNomeLoginAncestorAdded
+        // Printa na tela o login da conta.
         txtNomeLogin.setText(new ListaConta().getContas().get(id).getCliente().getNomeLogin());
     }//GEN-LAST:event_txtNomeLoginAncestorAdded
 
     private void txtSenhaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtSenhaAncestorAdded
-        txtSenha.setText(new ListaConta().getContas().get(id).getCliente().getSenha());
+        // Printa na tela a senha censurada (Ex. "*****") para uma senha com 5 digitos.
+        int tam = new ListaConta().getContas().get(id).getCliente().getSenha().length();
+        String SenhaCensurada = "";
+        for (int i = 0; i < tam; i++) {
+            SenhaCensurada = SenhaCensurada + "*";
+        }
+        txtSenha.setText(SenhaCensurada);
     }//GEN-LAST:event_txtSenhaAncestorAdded
 
     private void jButtonEditarNomeLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarNomeLoginActionPerformed
+        // Vai para a tela de editar nome de login.
         new TelaEditarNomeLogin(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonEditarNomeLoginActionPerformed
 
     private void jButtonEditarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarSenhaActionPerformed
+        // Vai para a tela de editar senha.
         new TelaEditarSenha(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonEditarSenhaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaConfigurações.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaConfigurações().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEditarNomeCompleto;

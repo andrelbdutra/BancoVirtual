@@ -14,11 +14,12 @@ import java.util.List;
  */
 public class ListaConta {
 
-    static private List<Conta> contas = new ArrayList<>();   
+    static private List<Conta> contas = new ArrayList<>();  
+    
     public ListaConta() {
 
     }
-
+    
     public List<Conta> getContas() {
         return ListaConta.contas;
     }
@@ -31,5 +32,4 @@ public class ListaConta {
 
         contas.add(new ContaPoupanca(cliente));
     }
-
 }

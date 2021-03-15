@@ -18,13 +18,14 @@ public class ContaPoupanca extends Conta {
     private int diaRendimento ;
 
     public ContaPoupanca() {
-        diaRendimento = 13;
+
+        diaRendimento=15;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
     }
 
     public ContaPoupanca(UsuarioCliente cliente) {
-        diaRendimento = 13;
+        diaRendimento = 15;
         this.saldo = 0;
         this.cliente = cliente;
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.mycompany.View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
@@ -26,8 +26,6 @@ public class TelaEditarNomeLogin extends javax.swing.JFrame {
     public TelaEditarNomeLogin() throws HeadlessException {
     }
     
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,10 +61,10 @@ public class TelaEditarNomeLogin extends javax.swing.JFrame {
         txtNomeLogin.setText("Exemplo");
         txtNomeLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtNomeLogin.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtNomeLoginAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -139,17 +137,20 @@ public class TelaEditarNomeLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeLoginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Volta para a tela principal.
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
+        // Edita o nome de login da conta atual.
         new ListaConta().getContas().get(id).getCliente().setNomeLogin(txtNomeLogin.getText());
         new TelaPrincipal(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonConcluirActionPerformed
 
     private void txtNomeLoginAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtNomeLoginAncestorAdded
+        // Imprime na tela o nome de login atual da conta.
         txtNomeLogin.setText(new ListaConta().getContas().get(id).getCliente().getNomeLogin());
     }//GEN-LAST:event_txtNomeLoginAncestorAdded
 
