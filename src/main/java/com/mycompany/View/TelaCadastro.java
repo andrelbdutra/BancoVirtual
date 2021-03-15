@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.mycompany.View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import com.mycompany.bancovirtual.UsuarioCliente;
-import com.mycompany.bancovirtual.UsuarioGerente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -116,21 +116,23 @@ public class TelaCadastro extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNomeCompleto)
+                    .addComponent(txtSenha)
+                    .addComponent(txtNomeLogin)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
-                        .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNomeCompleto)
-                    .addComponent(txtNomeLogin)
-                    .addComponent(txtSenha)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(contaCorrente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(contaPoupanca)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contaCorrente))
+                        .addGap(134, 134, 134)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(contaPoupanca, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButtonConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +166,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,19 +178,27 @@ public class TelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
-
-        UsuarioCliente cliente = new UsuarioCliente(txtNomeCompleto.getText(), txtNomeLogin.getText(), txtSenha.getText());
-        if (contaCorrente.isSelected()) {
-            new ListaConta().adicionaElemento(cliente);
-            new TelaInicial().setVisible(true);
-            this.dispose();
-        } else if (contaPoupanca.isSelected()) {
-            new ListaConta().adicionaElementoPoupanca(cliente);
-            new TelaInicial().setVisible(true);
-            this.dispose();
+        // Cadastra uma conta corrente ou poupança.
+        if(txtNomeCompleto.getText().length() == 0 || txtNomeLogin.getText().length() == 0 || txtSenha.getText().length() == 0){
+            // Não permite a criação de uma conta sem os 3 campos preenchidos.
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos.");
+        }
+        else{
+            UsuarioCliente cliente = new UsuarioCliente(txtNomeCompleto.getText(), txtNomeLogin.getText(), txtSenha.getText());
+            if (contaCorrente.isSelected()) {
+                new ListaConta().adicionaElemento(cliente);
+                new TelaInicial().setVisible(true);
+                this.dispose();
+            } else if (contaPoupanca.isSelected()) {
+                new ListaConta().adicionaElementoPoupanca(cliente);
+                new TelaInicial().setVisible(true);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_jButtonConcluirActionPerformed
-    }
+    
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // Volta para a tela inical.
         new TelaInicial().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
@@ -196,41 +206,6 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void contaCorrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contaCorrenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contaCorrenteActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastro().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

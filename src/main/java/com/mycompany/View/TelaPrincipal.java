@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package com.mycompany.View;
 
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,17 +19,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     /**
      * Creates new form TelaPrincipal
-     * @param val
+     * @param id
      */
-    public TelaPrincipal(int val) {
-        this.id = val;
+    public TelaPrincipal(int id) {
+        this.id = id;
         initComponents();
     }
 
     public TelaPrincipal() throws HeadlessException{
         initComponents();
     }
-
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtNome = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtID = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonNovoSaldo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -114,10 +114,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtSaldo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtSaldo.setText("exemplo");
         txtSaldo.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtSaldoAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -164,10 +164,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtNome.setForeground(new java.awt.Color(204, 255, 255));
         txtNome.setText("exemplo");
         txtNome.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtNomeAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -181,22 +181,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtID.setForeground(new java.awt.Color(204, 255, 255));
         txtID.setText("exemplo");
         txtID.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 txtIDAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("NOVO SALDO");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNovoSaldo.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonNovoSaldo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonNovoSaldo.setText("NOVO SALDO");
+        jButtonNovoSaldo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jButtonNovoSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonNovoSaldoActionPerformed(evt);
             }
         });
 
@@ -218,7 +218,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonNovoSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonDepositar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonSacar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonTransferir, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))))
@@ -257,7 +257,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonNovoSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jButtonDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -285,86 +285,65 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSaldoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtSaldoAncestorAdded
-        txtSaldo.setText(Double.toString(new ListaConta().getContas().get(id).getSaldo()));
+        // Imprime na tela o saldo da conta atual.
+        DecimalFormat formatador = new DecimalFormat("0.00");
+        String Saldo = formatador.format(new ListaConta().getContas().get(id).getSaldo());
+        txtSaldo.setText(Saldo);
     }//GEN-LAST:event_txtSaldoAncestorAdded
 
     private void jButtonSairContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairContaActionPerformed
+        // Volta para a tela inicial (sai da conta.)
         new TelaInicial().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSairContaActionPerformed
 
     private void jButtonDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDepositarActionPerformed
+        // Vai para a tela de deposito.
         new TelaDeposito(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonDepositarActionPerformed
 
     private void jButtonSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSacarActionPerformed
+        // Vai para a tela de saque.
         new TelaSaque(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSacarActionPerformed
 
     private void txtNomeAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtNomeAncestorAdded
+        // Imprime na tela o nome completo da conta atual.
         txtNome.setText(new ListaConta().getContas().get(id).getCliente().getNomeCompleto());
     }//GEN-LAST:event_txtNomeAncestorAdded
 
     private void jButtonConfiguraçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfiguraçõesActionPerformed
+        // Vai para a tela de configurações.
         new TelaConfigurações(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonConfiguraçõesActionPerformed
 
     private void jButtonTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferirActionPerformed
+        // Vai para a tela de transferencia.
         new TelaTransferencia(id).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonTransferirActionPerformed
 
     private void txtIDAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtIDAncestorAdded
+        // Imprime o ID da conta atual na tela.
         txtID.setText(Integer.toString(new ListaConta().getContas().get(id).getID()));
     }//GEN-LAST:event_txtIDAncestorAdded
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonNovoSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoSaldoActionPerformed
         new ListaConta().getContas().get(id).calcularNovoSaldo();
-        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de:"+ new ListaConta().getContas().get(id).getSaldo());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipal().setVisible(true);
-            }
-        });
-    }
+        DecimalFormat formatador = new DecimalFormat("0.00");
+        String Saldo = formatador.format(new ListaConta().getContas().get(id).getSaldo());
+        JOptionPane.showMessageDialog(null, "Seu novo saldo no final do mês será de:"+ Saldo);
+        new TelaPrincipal().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonNovoSaldoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonConfigurações;
     private javax.swing.JButton jButtonDepositar;
+    private javax.swing.JButton jButtonNovoSaldo;
     private javax.swing.JButton jButtonSacar;
     private javax.swing.JButton jButtonSairConta;
     private javax.swing.JButton jButtonTransferir;

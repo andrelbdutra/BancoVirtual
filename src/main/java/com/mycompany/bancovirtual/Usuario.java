@@ -16,6 +16,7 @@ public class Usuario {
     private int dia;
     private int mes;
     private int ano;
+    
  public String getNomeCompleto() {
         return nomeCompleto;
     }

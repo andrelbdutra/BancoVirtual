@@ -17,13 +17,13 @@ public class ContaPoupanca extends Conta {
 
 
     public ContaPoupanca() {
-        diaRendimento=13;
+        diaRendimento=14;
         this.saldo = 0;
         this.cliente = new UsuarioCliente();
     }
 
     public ContaPoupanca(UsuarioCliente cliente) {
-        diaRendimento = 13;
+        diaRendimento = 14;
         this.saldo = 0;
         this.cliente = cliente;
     }
@@ -52,12 +52,11 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public void calcularNovoSaldo() {
-        double taxaRendimento=0.1;
         Calendar hoje = Calendar.getInstance();
 
         if (diaRendimento == hoje.get(Calendar.DAY_OF_MONTH)) {
             // saldo + = saldo * taxaRendimento;
-            this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+            this.setSaldo(this.getSaldo() + (this.getSaldo()/100));
 
         }else 
             JOptionPane.showMessageDialog(null,"Não é dia de verificar o saldo");

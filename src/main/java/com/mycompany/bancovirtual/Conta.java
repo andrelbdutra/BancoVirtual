@@ -5,7 +5,7 @@
  */
 package com.mycompany.bancovirtual;
 
-import View.TelaDeposito;
+import com.mycompany.View.TelaDeposito;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
@@ -36,7 +36,7 @@ public class Conta {
         this.cliente = cliente;
         this.diaRendimento = diaRendimento;
     }
-
+    
     public double getSaldo() {
         return saldo;
     }
@@ -98,7 +98,7 @@ public class Conta {
     public void setCliente(UsuarioCliente cliente) {
         this.cliente = cliente;
     }
-
+ 
     /**
      * @return the quantidadeContas
      */
