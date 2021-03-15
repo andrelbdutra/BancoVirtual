@@ -9,7 +9,7 @@ package com.mycompany.bancovirtual;
  *
  * @author Pichau
  */
-public class Usuario {
+public abstract class Usuario {
     private String nomeCompleto;
     private String nomeLogin;
     private String senha;

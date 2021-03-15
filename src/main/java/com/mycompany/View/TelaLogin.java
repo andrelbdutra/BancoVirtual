@@ -171,19 +171,23 @@ public class TelaLogin extends javax.swing.JFrame {
         // Verifica se a conta existe e se o login e senha digitados são compativeis com os armazenados.
         if (Conta.getQuantidadeContas() == 0) {
             JOptionPane.showMessageDialog(null, "Acesso negado! conta inexistente", "Alerta", JOptionPane.WARNING_MESSAGE);
-        }
-        for (int i = 0; i < Conta.getQuantidadeContas(); i++) {
-            if (txtLogin.getText().equals("admin") && txtSenha.getText().equals("admin")) {
-                new TelaGerente().setVisible(true);
-                this.dispose();
+        } else if (!txtLogin.getText().isEmpty() && !txtSenha.getText().isEmpty()) { //Entra somente se os campos login e senha não estão vazios
+            for (int i = 0; i < Conta.getQuantidadeContas(); i++) {
+                if (txtLogin.getText().equals("admin") && txtSenha.getText().equals("admin")) {
+                    new TelaGerente().setVisible(true);
+                    this.dispose();
+                } else if (txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())) {
+                    new TelaPrincipal(i).setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Dados incorretos", "Alerta", JOptionPane.WARNING_MESSAGE);
+                }
             }
-            else if (txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())) {
-                new TelaPrincipal(i).setVisible(true);
-                this.dispose();
-            }       
-        }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
-
+        else {
+            JOptionPane.showMessageDialog(null, "É obrigatório o preenchimento dos campos para efetuar o Login", "Alerta", JOptionPane.WARNING_MESSAGE);
+        }
+    }
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // Volta para a tela inicial.
         new TelaInicial().setVisible(true);
