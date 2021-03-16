@@ -5,6 +5,9 @@
  */
 package com.mycompany.View;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
 import java.text.DecimalFormat;
@@ -48,7 +51,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtSaldo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButtonSairConta = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtNome = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -146,16 +148,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addComponent(txtSaldo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jButtonSairConta.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonSairConta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonSairConta.setText("Sair");
-        jButtonSairConta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jButtonSairConta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSairContaActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Olá,");
@@ -205,9 +197,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonSairConta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(140, 140, 140)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,20 +228,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonSairConta, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonConfigurações, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtNome))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtID))))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConfigurações, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -290,12 +275,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         String Saldo = formatador.format(new ListaConta().getContas().get(id).getSaldo());
         txtSaldo.setText(Saldo);
     }//GEN-LAST:event_txtSaldoAncestorAdded
-
-    private void jButtonSairContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairContaActionPerformed
-        // Volta para a tela inicial (sai da conta.)
-        new TelaInicial().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonSairContaActionPerformed
 
     private void jButtonDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDepositarActionPerformed
         // Vai para a tela de deposito.
@@ -359,7 +338,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDepositar;
     private javax.swing.JButton jButtonNovoSaldo;
     private javax.swing.JButton jButtonSacar;
-    private javax.swing.JButton jButtonSairConta;
     private javax.swing.JButton jButtonTransferir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -5,6 +5,9 @@
  */
 package com.mycompany.View;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import com.mycompany.bancovirtual.ListaConta;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
@@ -67,6 +70,7 @@ public class TelaDeposito extends javax.swing.JFrame {
 
         jButtonVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVoltar.setText("Voltar");
+        jButtonVoltar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVoltarActionPerformed(evt);
@@ -107,6 +111,7 @@ public class TelaDeposito extends javax.swing.JFrame {
 
         jButtonConcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonConcluir.setText("Concluir");
+        jButtonConcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jButtonConcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConcluirActionPerformed(evt);

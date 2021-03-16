@@ -5,6 +5,9 @@
  */
 package com.mycompany.bancovirtual;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 /**
  *
  * @author Pichau
@@ -13,8 +16,14 @@ public abstract class Usuario {
     private String nomeCompleto;
     private String nomeLogin;
     private String senha;
-    
- public String getNomeCompleto() {
+
+    public Usuario(String nomeComp, String nomeLog, String sen) {
+        nomeCompleto = nomeComp;
+        nomeLogin = nomeLog;
+        senha = sen;
+    }
+     
+    public String getNomeCompleto() {
         return nomeCompleto;
     }
 

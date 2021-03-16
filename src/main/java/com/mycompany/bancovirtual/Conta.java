@@ -5,10 +5,9 @@
  */
 package com.mycompany.bancovirtual;
 
-import com.mycompany.View.TelaDeposito;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Scanner;
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import javax.swing.JOptionPane;
 
 /**
@@ -21,12 +20,6 @@ public class Conta {
     protected UsuarioCliente cliente;
     protected double saldo;   
     private static int quantidadeContas;
-
-    public Conta() {
-        this.ID = quantidadeContas++;
-        this.saldo = 0;
-        this.cliente = new UsuarioCliente();        
-    }
 
     public Conta(UsuarioCliente cliente) {
         this.ID = quantidadeContas++;
@@ -102,6 +95,12 @@ public class Conta {
     public static int getQuantidadeContas() {
         return quantidadeContas;
     }
+
+    public static void setQuantidadeContas(int quantidadeContas) {
+        Conta.quantidadeContas = quantidadeContas;
+    }
+    
+    
     
     public int leNumeroValido(String valorDigitado){
         int valor = 0;

@@ -5,6 +5,9 @@
  */
 package com.mycompany.View;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import com.mycompany.bancovirtual.Conta;
 import com.mycompany.bancovirtual.ListaConta;
 import java.util.List;

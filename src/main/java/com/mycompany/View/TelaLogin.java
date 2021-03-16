@@ -5,6 +5,9 @@
  */
 package com.mycompany.View;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import com.mycompany.bancovirtual.Conta;
 import com.mycompany.bancovirtual.ListaConta;
 import javax.swing.JOptionPane;
@@ -169,25 +172,30 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         // Verifica se a conta existe e se o login e senha digitados são compativeis com os armazenados.
+        Boolean logado = false; //verefica se realizou ou não o login.
         if (Conta.getQuantidadeContas() == 0) {
             JOptionPane.showMessageDialog(null, "Acesso negado! conta inexistente", "Alerta", JOptionPane.WARNING_MESSAGE);
-        } else if (!txtLogin.getText().isEmpty() && !txtSenha.getText().isEmpty()) { //Entra somente se os campos login e senha não estão vazios
+        } else if (txtLogin.getText().isEmpty() && txtSenha.getText().isEmpty()) { //Entra somente se os campos login e senha não estão vazios
+            JOptionPane.showMessageDialog(null, "É obrigatório o preenchimento dos campos para efetuar o Login", "Alerta", JOptionPane.WARNING_MESSAGE);            
+        }
+        else {
             for (int i = 0; i < Conta.getQuantidadeContas(); i++) {
                 if (txtLogin.getText().equals("admin") && txtSenha.getText().equals("admin")) {
+                    logado = true;
                     new TelaGerente().setVisible(true);
                     this.dispose();
                 } else if (txtLogin.getText().equals(new ListaConta().getContas().get(i).getCliente().getNomeLogin()) && txtSenha.getText().equals(new ListaConta().getContas().get(i).getCliente().getSenha())) {
+                    logado = true;
                     new TelaPrincipal(i).setVisible(true);
                     this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Dados incorretos", "Alerta", JOptionPane.WARNING_MESSAGE);
-                }
+                }                   
             }
+            if(logado == false){
+                JOptionPane.showMessageDialog(null, "Dados incorretos", "Alerta", JOptionPane.WARNING_MESSAGE);
+            }
+        }        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
-        else {
-            JOptionPane.showMessageDialog(null, "É obrigatório o preenchimento dos campos para efetuar o Login", "Alerta", JOptionPane.WARNING_MESSAGE);
-        }
-    }
+
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // Volta para a tela inicial.
         new TelaInicial().setVisible(true);

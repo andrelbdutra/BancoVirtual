@@ -5,6 +5,9 @@
  */
 package com.mycompany.View;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 /**
  *
  * @author Sharp
@@ -34,6 +37,7 @@ public class TelaGerente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
 
+        sair.setBackground(new java.awt.Color(255, 255, 255));
         sair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sair.setText("Sair");
         sair.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -47,6 +51,7 @@ public class TelaGerente extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Olá, gerente.");
 
+        jButtonVerificarContas.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVerificarContas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonVerificarContas.setText("VERIFICAR CONTAS");
         jButtonVerificarContas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -76,11 +81,11 @@ public class TelaGerente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(47, 47, 47)
                 .addComponent(jButtonVerificarContas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

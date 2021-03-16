@@ -5,6 +5,9 @@
  */
 package com.mycompany.bancovirtual;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import javax.swing.JOptionPane;
 
 /**
@@ -13,14 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente() {        
-        this.saldo = 0;
-        this.cliente = new UsuarioCliente();
-    }
-
     public ContaCorrente(UsuarioCliente cliente) {
-        this.saldo = 0;
-        this.cliente = cliente;
+        super(cliente);    
     }
 
     @Override

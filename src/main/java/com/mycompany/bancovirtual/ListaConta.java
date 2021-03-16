@@ -5,6 +5,9 @@
  */
 package com.mycompany.bancovirtual;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +27,7 @@ public class ListaConta {
         return ListaConta.contas;
     }
 
-    public void adicionaElemento(UsuarioCliente cliente) {
+    public void adicionaElementoCorrente(UsuarioCliente cliente) {
 
         contas.add(new ContaCorrente(cliente));
     }

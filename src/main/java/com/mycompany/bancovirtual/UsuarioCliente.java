@@ -5,21 +5,16 @@
  */
 package com.mycompany.bancovirtual;
 
-import java.util.Scanner;
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
 
 /**
  *
  * @author Pichau
  */
-public class UsuarioCliente extends Usuario {
-
-    public UsuarioCliente() {
-
-    }
-    
-    public UsuarioCliente(String nomeCompleto, String nomeLogin,String senha){
-        setNomeCompleto(nomeCompleto);
-        setNomeLogin(nomeLogin);
-        setSenha(senha);
+public class UsuarioCliente extends Usuario{
+   
+    public UsuarioCliente(String nomeCompleto, String nomeLogin,String senha){ 
+        super(nomeCompleto, nomeLogin, senha);
     }
 }

@@ -5,6 +5,9 @@
  */
 package com.mycompany.View;
 
+//Aluno: André Luís Braga Dutra - 201735038
+//Aluno: Wesley de Almeida Cruz - 201765567AC
+
 import com.mycompany.bancovirtual.ListaConta;
 import com.mycompany.bancovirtual.UsuarioCliente;
 import javax.swing.JOptionPane;
@@ -186,7 +189,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         else{
             UsuarioCliente cliente = new UsuarioCliente(txtNomeCompleto.getText(), txtNomeLogin.getText(), txtSenha.getText());
             if (contaCorrente.isSelected()) {
-                new ListaConta().adicionaElemento(cliente);
+                new ListaConta().adicionaElementoCorrente(cliente);
                 new TelaInicial().setVisible(true);
                 this.dispose();
             } else if (contaPoupanca.isSelected()) {
